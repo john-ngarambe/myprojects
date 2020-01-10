@@ -4,15 +4,15 @@ public class Customer extends Bank {
     protected String customerAccount;
     protected String customerFirstName;
     protected String customerLastName;
-    protected long amount;
+    protected long balance;
 
     public Customer(String bankCode, String bankName, String bankType, String customerAccount,
-                    String customerFirstName, String customerLastName, long amount) {
+                    String customerFirstName, String customerLastName, long balance) {
         super(bankCode, bankName, bankType);
         this.customerAccount = customerAccount;
         this.customerFirstName = customerFirstName;
         this.customerLastName = customerLastName;
-        this.amount = amount;
+        this.balance = balance;
     }
 
     public String getCustomerAccount() {
@@ -40,10 +40,13 @@ public class Customer extends Bank {
     }
 
     public long getAmount() {
-        return amount;
+        return balance;
     }
 
     public void setAmount(long amount) {
-        this.amount = amount;
+        this.balance = balance;
+    }
+    public long deposit(int amount){
+      return this.balance +=amount;
     }
 }
