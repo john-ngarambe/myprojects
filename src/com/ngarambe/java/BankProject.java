@@ -44,15 +44,8 @@ public class BankProject {
        // System.out.println("Loan Balance = " + currencyFormat.format(mortgage.loanBalance));
        // System.out.println("Principal of Loan payed = " + currencyFormat.format(mortgage.principal));
        // System.out.println("Interest on loan payed per month = " + currencyFormat.format(mortgage.interestPerMonth));
-        CreateAccount account = new CreateAccount();
-        Mortgage mortgage = new Mortgage();
-        Scanner scanner = new Scanner(System.in);
-
-
-       // System.out.println("Enter your choice :");
-        int choice ;
         // System.out.println("Enter loan amount :");
-       // int loanAmount = scanner.nextInt();
+        // int loanAmount = scanner.nextInt();
         // System.out.println("Enter loan term(in years): ");
         //int termInYears = scanner.nextInt();
         //System.out.println("Enter interest rate : ");
@@ -61,6 +54,13 @@ public class BankProject {
 
         //NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         //NumberFormat interestFormat = NumberFormat.getPercentInstance();
+        
+        CreateAccount account = new CreateAccount();
+        Mortgage mortgage = new Mortgage();
+        Scanner scanner = new Scanner(System.in);
+
+        int choice ;
+
 
         do {
             System.out.println("Enter your choice :");
