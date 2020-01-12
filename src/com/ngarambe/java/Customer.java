@@ -1,52 +1,23 @@
 package com.ngarambe.java;
 
-public class Customer extends Bank {
-    protected String customerAccount;
-    protected String customerFirstName;
-    protected String customerLastName;
-    protected long balance;
+import java.util.Scanner;
 
-    public Customer(String bankCode, String bankName, String bankType, String customerAccount,
-                    String customerFirstName, String customerLastName, long balance) {
-        super(bankCode, bankName, bankType);
-        this.customerAccount = customerAccount;
-        this.customerFirstName = customerFirstName;
-        this.customerLastName = customerLastName;
-        this.balance = balance;
-    }
+public class Customer extends Account {
+    protected String Address;
+    protected String phoneNumber;
+    protected String MaterialStatus;
+    protected String Age;
 
-    public String getCustomerAccount() {
-        return customerAccount;
-    }
+    public Customer(String accountName, String accountType, int accountNumber, int balance,double amountDue,
+                    String address, String phoneNumber, String materialStatus, String age) {
 
-    public void setCustomerAccount(String customerAccount) {
-        this.customerAccount = customerAccount;
+        super(accountName, accountType, accountNumber, balance,amountDue);
+        Address = address;
+        this.phoneNumber = phoneNumber;
+        MaterialStatus = materialStatus;
+        Age = age;
     }
+    public Customer() {
 
-    public String getCustomerFirstName() {
-        return customerFirstName;
-    }
-
-    public void setCustomerFirstName(String customerFirstName) {
-        this.customerFirstName = customerFirstName;
-    }
-
-    public String getCustomerLastName() {
-        return customerLastName;
-    }
-
-    public void setCustomerLastName(String customerLastName) {
-        this.customerLastName = customerLastName;
-    }
-
-    public long getAmount() {
-        return balance;
-    }
-
-    public void setAmount(long amount) {
-        this.balance = balance;
-    }
-    public long deposit(int amount){
-      return this.balance +=amount;
     }
 }
