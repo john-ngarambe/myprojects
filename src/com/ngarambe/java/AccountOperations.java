@@ -1,5 +1,8 @@
 package com.ngarambe.java;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.NumberFormat;
 import java.util.Scanner;
 
@@ -8,7 +11,14 @@ public class AccountOperations extends Account {
         super();
     }
 
+    @Override
+    public double calculateMonthlyPayment() {
+        return 0;
+    }
+
     public void createAccount(){
+        Connection conn = null;
+        Statement statement = null;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter account name to be created:");
         String name = scanner.nextLine();
@@ -19,8 +29,81 @@ public class AccountOperations extends Account {
         System.out.println("Enter account number to be created:");
         int account = scanner.nextInt();
         this.accountNumber=account;
+        try{
+            conn = DbConnection.getConnection();
+            if(conn != null){
+                System.out.println("Database connected successfully");
+                statement = conn.createStatement();
+                String sql1 = "INSERT INTO ACCOUNT  VALUES('"+name+"','"+accountModel+"',"+ account+")";
+                statement.executeUpdate(sql1);
+                System.out.println("Data inserted successfully");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(statement!=null)
+                    conn.close();
+            }catch(SQLException se){
+
+            }
+            if(conn != null){
+                try {
+                    conn.close();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
 
     }
+
+    @Override
+    public void executeUpdate(String sql1) {
+
+    }
+
+    /*@Override
+        public void executeUpdate(String sql1) {
+            Connection conn = null;
+            Statement statement = null;
+
+            try{
+                conn = DbConnection.getConnection();
+                if(conn != null){
+                    System.out.println("Database connected successfully");
+
+                statement = conn.createStatement();
+                 *//*String sql = "CREATE TABLE ACCOUNT" +
+                         "( accountName VARCHAR (255),"+
+                         "accountType VARCHAR (255) ,"+
+                         "accountNumber INTEGER not NULL," +
+                         "PRIMARY KEY (accountNumber) )";
+            statement.executeUpdate(sql);
+            System.out.println("Table Account is created !");*//*
+
+           sql1 = "INSERT INTO ACCOUNT (accountName,accountType,accountNumber)" + "VALUES(?,?,?)";
+            statement.executeUpdate(sql1);
+            System.out.println("Data inserted successfully");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(statement!=null)
+                    conn.close();
+            }catch(SQLException se){
+
+            }
+            if(conn != null){
+                try {
+                    conn.close();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }*/
     public double deposit(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter amount you want to deposit:");
