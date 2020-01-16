@@ -72,17 +72,17 @@ public class BankProject {
                     account.createAccount();
                     scanner.nextInt();
                     account.executeUpdate("INSERT INTO ACCOUNT VALUES("+account.getAccountName()+ "," +account.getAccountType() + "," +account.getAccountNumber()+")");
-                    scanner.nextInt();
+                    //scanner.nextInt();
                     break;
                 case 2:
                     account.deposit();
                     account.displayDetails();
-                    scanner.nextInt();
+                   // scanner.nextInt();
                     break;
                 case 3:
                     account.withdrawal();
                     account.displayDetails();
-                    scanner.nextInt();
+                   // scanner.nextInt();
                     break;
                 case 4:
                     mortgage.calculateMonthlyPayment();

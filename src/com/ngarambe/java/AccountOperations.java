@@ -63,47 +63,6 @@ public class AccountOperations extends Account {
 
     }
 
-    /*@Override
-        public void executeUpdate(String sql1) {
-            Connection conn = null;
-            Statement statement = null;
-
-            try{
-                conn = DbConnection.getConnection();
-                if(conn != null){
-                    System.out.println("Database connected successfully");
-
-                statement = conn.createStatement();
-                 *//*String sql = "CREATE TABLE ACCOUNT" +
-                         "( accountName VARCHAR (255),"+
-                         "accountType VARCHAR (255) ,"+
-                         "accountNumber INTEGER not NULL," +
-                         "PRIMARY KEY (accountNumber) )";
-            statement.executeUpdate(sql);
-            System.out.println("Table Account is created !");*//*
-
-           sql1 = "INSERT INTO ACCOUNT (accountName,accountType,accountNumber)" + "VALUES(?,?,?)";
-            statement.executeUpdate(sql1);
-            System.out.println("Data inserted successfully");
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            try{
-                if(statement!=null)
-                    conn.close();
-            }catch(SQLException se){
-
-            }
-            if(conn != null){
-                try {
-                    conn.close();
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }
-    }*/
     public double deposit(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter amount you want to deposit:");
